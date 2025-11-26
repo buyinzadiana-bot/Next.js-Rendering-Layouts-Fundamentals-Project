@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This project demonstrates the core concepts of the Next.js App Router, including file structure, layouts, nested layouts, dynamic routing, and multiple rendering techniques (CSR, SSR, SSG, ISR). Tailwind CSS is used for styling, and the project includes a dark/light mode toggle and an optional search feature.
 
-## Getting Started
+The goal of this project is to show a clear understanding of how different rendering methods work together within a modern Next.js application.
 
-First, run the development server:
+Technologies Used
 
-```bash
+Next.js (App Router)
+
+React
+
+Tailwind CSS
+
+TypeScript
+
+JSONPlaceholder API (mock data source)
+
+Features
+
+Global layout with header, navigation links, and footer
+
+Nested blog layout with sidebar categories
+
+Dynamic routes for individual blog posts
+
+Client-side rendering example (live clock)
+
+Server-side rendering example (About page)
+
+Static site generation (Blog listing)
+
+Incremental static regeneration (Blog detail pages)
+
+Optional dark/light mode toggle stored in local storage
+
+Project Structure
+
+The project follows the App Router structure provided by Next.js.
+
+app/
+  layout.tsx
+  globals.css
+  page.tsx
+
+  about/
+    page.tsx
+
+  blog/
+    layout.tsx
+    page.tsx
+    [id]/
+      page.tsx
+
+components/
+  Clock.tsx
+  DarkToggle.tsx
+  SearchBar.tsx
+Rendering Techniques Used
+Client-Side Rendering (CSR)
+
+Used in:
+
+Home page live clock component (Clock.tsx)
+
+Dark mode toggle
+
+Blog search bar (optional)
+
+Server-Side Rendering (SSR)
+
+Used in:
+
+About page
+Fetching author information from a mock API during the server request.
+
+Static Site Generation (SSG)
+
+Used in:
+
+Blog listing page
+Blog posts are fetched at build time and served statically.
+
+Incremental Static Regeneration (ISR)
+
+Used in:
+
+Blog detail pages
+Each blog post is pre-rendered and revalidated after a set interval.
+
+Nested Layouts
+
+The main layout (app/layout.tsx) wraps the entire application.
+
+The blog section has its own layout (app/blog/layout.tsx) with a sidebar that appears only in the blog pages.
+
+Installation and Setup
+
+Clone the repository:
+
+git clone <repository-url>
+cd nextjs-rendering-layouts
+
+Install dependencies:
+
+npm install
+
+Run the development server:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the application in your browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
+Tailwind CSS Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Tailwind is configured using:
 
-## Learn More
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+globals.css includes Tailwind directives, and tailwind.config.js is configured to scan the app and components folders.
